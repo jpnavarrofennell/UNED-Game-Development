@@ -1,0 +1,14 @@
+MMMMMMMMMM,
+MPPPPPPPPM,
+MPJPPPPPPM,
+MPPPPPPPPM,
+MPCPPPOPPM,
+MPPPPPPPPM,
+MMMMMMMMMM,
+
+M = Muro
+P = Piso
+J = Jugador
+C = Caja
+O = Objetivo
+, = Salto de linea
