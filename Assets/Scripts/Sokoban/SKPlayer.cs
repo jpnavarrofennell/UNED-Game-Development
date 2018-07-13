@@ -18,6 +18,7 @@ namespace UnedSokoban
         public float threshold;
 
         // Declaración de miembros de clase privadas
+        private SKLevel _level;
         private SKSmoothFollow _smoothFollow;
         private Vector3 _direction;
         private bool _isReadyToMove;
@@ -27,6 +28,8 @@ namespace UnedSokoban
         // Método que se ejecuta únicamente en el primer momento que aparece en pantalla el objeto
         void Start()
         {
+            // Se obtiene la referencia a SKLevel, que administra el nivel actual
+            _level = SKGameControl.instance.levelmanager;
             _isReadyToMove = true;
             this.gameObject.transform.parent.name = "Ground";
             this.gameObject.name = "Player";
@@ -38,26 +41,34 @@ namespace UnedSokoban
         // Método que se ejecuta en cada refrescamiento de pantalla
         void Update()
         {
-            // Lectura de teclado 
-            if(Input.GetKeyDown(KeyCode.RightArrow)) 
+            if(_level.GameStarted() && !_level.GameDone()) 
             {
-                MoveChar(Vector3.right);
-            }
+                // Lectura de teclado 
+                if (Input.GetKeyDown(KeyCode.RightArrow))
+                {
+                    MoveChar(Vector3.right);
+                }
 
-            if(Input.GetKeyDown(KeyCode.LeftArrow)) 
-            {
-                MoveChar(Vector3.left);
-            }
+                if (Input.GetKeyDown(KeyCode.LeftArrow))
+                {
+                    MoveChar(Vector3.left);
+                }
 
-            if(Input.GetKeyDown(KeyCode.DownArrow)) 
-            {
-                MoveChar(Vector3.back);
-            }
+                if (Input.GetKeyDown(KeyCode.DownArrow))
+                {
+                    MoveChar(Vector3.back);
+                }
 
-            if(Input.GetKeyDown(KeyCode.UpArrow)) 
-            {
-                MoveChar(Vector3.forward);
+                if (Input.GetKeyDown(KeyCode.UpArrow))
+                {
+                    MoveChar(Vector3.forward);
+                }
             }
+        }
+
+        public void SetLevelController(SKLevel level) 
+        {
+            _level = level;
         }
 
         // Método privado encargado de mover el personaje

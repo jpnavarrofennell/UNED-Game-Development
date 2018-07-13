@@ -43,11 +43,30 @@ namespace UnedSokoban
 
         private void Update()
         {
-            if(_gameStart) {
-                foreach(SKTarget target in _targets) {
-                    //_gameDone = target.GetStatus();
+            if(!_gameDone) 
+            {
+                if (_gameStart)
+                {
+                    GameDone();
                 }
             }
+        }
+
+        public bool GameDone() 
+        {
+            _gameDone = true;
+            foreach (SKTarget target in _targets)
+            {
+                if (!target.GetStatus())
+                {
+                    _gameDone = false;
+                }
+            }
+            if (_gameDone)
+            {
+                Debug.Log("Win");
+            }
+            return _gameDone;
         }
 
         private IEnumerator InitGame()
@@ -55,6 +74,10 @@ namespace UnedSokoban
             _curX = 0;
             _curY = 0;
             _curZ = 0;
+
+            // Se registra SKLevel dentro de SKGameControl para que quede 
+            // accesible a otras clases dentro de la escena
+            SKGameControl.instance.levelmanager = this;
 
             // Lectura del archivo
             string path = Application.dataPath + "/StreamingAssets/" + levelName + ".txt";
@@ -80,12 +103,15 @@ namespace UnedSokoban
                     _curZ--;
                     _curX = 0;
                 }
-                yield return new WaitForEndOfFrame();
-                yield return new WaitForEndOfFrame();
             }
             yield return new WaitForEndOfFrame();
-            _gameStart = true;
             _targets = SKGameControl.instance.GetTargets();
+            _gameStart = true;
+        }
+
+        public bool GameStarted() 
+        {
+            return _gameStart;
         }
     }
 }

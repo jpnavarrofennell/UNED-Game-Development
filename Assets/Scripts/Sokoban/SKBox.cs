@@ -13,11 +13,13 @@ namespace UnedSokoban
 {
     public class SKBox : MonoBehaviour
     {
-
+        private SKLevel _level;
         private RaycastHit _hit;
-        // Use this for initialization
+
         void Start()
         {
+            // Se obtiene la referencia a SKLevel, que administra el nivel actual
+            _level = SKGameControl.instance.levelmanager;
             this.gameObject.transform.parent.name = "Ground";
             this.gameObject.name = "Box";
             this.gameObject.transform.parent = null;
@@ -31,15 +33,27 @@ namespace UnedSokoban
 
         public bool MoveBox(Vector3 direction, float stepDistance)
         {
-            if (DetectObstruction(direction, stepDistance))
-            {
-                return false;
+            if (!_level.GameDone())
+            { 
+                if (DetectObstruction(direction, stepDistance))
+                {
+                    return false;
+                }
+                else
+                {
+                    this.gameObject.transform.Translate(direction);
+                    return true;
+                }
             }
             else
             {
-                this.gameObject.transform.Translate(direction);
-                return true;
+                return false;
             }
+        }
+
+        public void SetLevelController(SKLevel level)
+        {
+            _level = level;
         }
 
         private bool DetectObstruction(Vector3 direction, float stepDistance)

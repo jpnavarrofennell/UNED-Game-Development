@@ -15,8 +15,6 @@ namespace UnedSokoban {
     {
         public static SKGameControl instance;
 
-        private List<SKTarget> targets;
-
         public int characterMoves 
         {
             get 
@@ -41,8 +39,22 @@ namespace UnedSokoban {
             }
         }
 
+        public SKLevel levelmanager 
+        {
+            get 
+            {
+                return _level;
+            }
+            set 
+            {
+                _level = value;
+            }
+        }
+
         private int _characterMoves;
         private float _activePlayTime;
+        private List<SKTarget> targets;
+        private SKLevel _level;
 
         // Use this for initialization
         void Awake()
