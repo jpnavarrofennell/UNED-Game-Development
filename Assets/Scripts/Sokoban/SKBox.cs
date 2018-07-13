@@ -14,7 +14,6 @@ namespace UnedSokoban
     public class SKBox : MonoBehaviour
     {
         private SKLevel _level;
-        private RaycastHit _hit;
 
         void Start()
         {
@@ -58,10 +57,10 @@ namespace UnedSokoban
 
         private bool DetectObstruction(Vector3 direction, float stepDistance)
         {
+            RaycastHit _hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(direction), out _hit, stepDistance))
             {
                 Debug.DrawRay(transform.position, transform.TransformDirection(direction) * stepDistance, Color.yellow);
-                Debug.Log("Collision (Box)");
                 return true;
             }
             else

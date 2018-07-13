@@ -28,6 +28,7 @@ namespace UnedSokoban
 
         private bool _gameStart;
         private bool _gameDone;
+        private bool _nextGame;
         private int _curX;
         private int _curY;
         private int _curZ;
@@ -64,9 +65,17 @@ namespace UnedSokoban
             }
             if (_gameDone)
             {
+                if(!_nextGame) StartCoroutine(NextLevel());
                 Debug.Log("Win");
             }
             return _gameDone;
+        }
+
+        private IEnumerator NextLevel() 
+        {
+            _nextGame = true;
+            yield return new WaitForSeconds(1f);
+            SKGameControl.instance.LoadScene(this.nextLevelName);
         }
 
         private IEnumerator InitGame()

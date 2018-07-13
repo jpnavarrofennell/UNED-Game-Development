@@ -73,11 +73,15 @@ namespace UnedSokoban {
 
         public void LoadScene(string value) 
         {
+            _level = null;
+            ResetTargets();
             SceneManager.LoadScene(value);
         }
 
         public void RestartGame() 
         {
+            _level = null;
+            ResetTargets();
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
