@@ -452,3 +452,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef7c2a609c92f42eea98913ec2eeed7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stepDistance: 1
+  threshold: 0
