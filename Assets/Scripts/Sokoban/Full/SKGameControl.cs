@@ -82,6 +82,8 @@ namespace UnedSokoban {
         {
             _level = null;
             ResetTargets();
+            _characterMoves = 0;
+            _activePlayTime = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
@@ -98,6 +100,16 @@ namespace UnedSokoban {
         public SKTarget[] GetTargets()
         {
             return targets.ToArray();
+        }
+
+        public void AddMove() 
+        {
+            _characterMoves++;
+        }
+
+        public void AddPlayTime(float value) 
+        {
+            _activePlayTime += value;
         }
 
         public void OnApplicationQuit()

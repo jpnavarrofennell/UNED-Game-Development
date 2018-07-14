@@ -16,6 +16,18 @@ namespace UnedSokoban
     {
         // Miembros de clase públicos
         public GameObject PanelCreditos;
+        public GameObject PanelPausa;
+        public Text MovesCounter;
+        public Text TimeCounter;
+
+        private void Update()
+        {
+            if (MovesCounter != null && TimeCounter != null) 
+            {
+                MovesCounter.text = SKGameControl.instance.characterMoves.ToString();
+                TimeCounter.text = Mathf.RoundToInt(SKGameControl.instance.activePlayTime).ToString();
+            }
+        }
 
         public void QuitSokoban()
         {

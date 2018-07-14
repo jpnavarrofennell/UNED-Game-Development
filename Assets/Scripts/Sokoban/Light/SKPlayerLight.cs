@@ -11,64 +11,47 @@ using UnityEngine;
 
 namespace UnedSokoban 
 {
-    public class SKPlayer : MonoBehaviour
+    public class SKPlayerLight : MonoBehaviour
     {
         // Declaración de miembros de clase públicas
         public float stepDistance = 1f;
         public float threshold;
 
         // Declaración de miembros de clase privadas
-        private SKLevel _level;
-        private SKSmoothFollow _smoothFollow;
         private Vector3 _direction;
         private bool _isReadyToMove;
         private RaycastHit _hit;
-        private SKBox _box;
+        private SKBoxLight _box;
 
         // Método que se ejecuta únicamente en el primer momento que aparece en pantalla el objeto
         void Start()
         {
-            // Se obtiene la referencia a SKLevel, que administra el nivel actual
-            _level = SKGameControl.instance.levelmanager;
             _isReadyToMove = true;
-            this.gameObject.transform.parent.name = "Ground";
-            this.gameObject.name = "Player";
-            this.gameObject.transform.parent = null;
-            _smoothFollow = Camera.main.GetComponent<SKSmoothFollow>();
-            _smoothFollow.target = this.gameObject.transform;
         }
 
         // Método que se ejecuta en cada refrescamiento de pantalla
         void Update()
         {
-            if(_level.GameStarted() && !_level.GameDone()) 
+            // Lectura de teclado 
+            if (Input.GetKeyDown(KeyCode.RightArrow))
             {
-                // Lectura de teclado 
-                if (Input.GetKeyDown(KeyCode.RightArrow))
-                {
-                    MoveChar(Vector3.right);
-                }
-
-                if (Input.GetKeyDown(KeyCode.LeftArrow))
-                {
-                    MoveChar(Vector3.left);
-                }
-
-                if (Input.GetKeyDown(KeyCode.DownArrow))
-                {
-                    MoveChar(Vector3.back);
-                }
-
-                if (Input.GetKeyDown(KeyCode.UpArrow))
-                {
-                    MoveChar(Vector3.forward);
-                }
+                MoveChar(Vector3.right);
             }
-        }
 
-        public void SetLevelController(SKLevel level) 
-        {
-            _level = level;
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                MoveChar(Vector3.left);
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                MoveChar(Vector3.back);
+            }
+
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                MoveChar(Vector3.forward);
+            }
         }
 
         // Método privado encargado de mover el personaje
@@ -101,14 +84,11 @@ namespace UnedSokoban
                 // Se dibuja en el editor de Unity un rayo
                 Debug.DrawRay(transform.position, transform.TransformDirection(direction) * stepDistance, Color.yellow);
 
-                // Se escribe en la consola un mensaje
-                Debug.Log("Collision");
-
                 // Colisión con una caja, se consulta mediante la información almacenada en _hit
                 if(_hit.collider.gameObject.tag.Equals("Box")) 
                 {
                     // Obtengo la referencia a la clase SKBox para consultar el obejto que intento mover
-                    _box = _hit.collider.gameObject.GetComponent<SKBox>();
+                    _box = _hit.collider.gameObject.GetComponent<SKBoxLight>();
 
                     // Evaluar si se puedo mover la caja
                     // Invocar metodos de mover la caja

@@ -4,3 +4,4 @@ J = Jugador
 C = Caja
 O = Objetivo
 , = Salto de linea
+- = Espacio en blanco

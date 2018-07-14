@@ -49,6 +49,7 @@ namespace UnedSokoban
                 if (_gameStart)
                 {
                     GameDone();
+                    SKGameControl.instance.AddPlayTime(Time.deltaTime);
                 }
             }
         }
