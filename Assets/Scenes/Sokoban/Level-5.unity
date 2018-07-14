@@ -667,8 +667,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 899caa128c98340e3aeac4c8f663505b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelName: Level-4
-  nextLevelName: Level-5
+  levelName: Level-5
+  nextLevelName: Main
   elements:
   - name: Player
     prefab: {fileID: 1954444024300182, guid: d78056deacc764f3682646be0c82eb43, type: 2}

@@ -89,7 +89,7 @@ namespace UnedSokoban
             SKGameControl.instance.levelmanager = this;
 
             // Lectura del archivo
-            string path = Application.dataPath + "/StreamingAssets/" + levelName + ".txt";
+            string path = Application.dataPath + "/StreamingAssets/Sokoban/" + levelName + ".txt";
             StreamReader reader = new StreamReader(path);
             _levelload = reader.ReadToEnd();
             reader.Close();
@@ -107,6 +107,13 @@ namespace UnedSokoban
                     }
                 }
 
+                // Espacio en blanco
+                if (data == '-')
+                {
+                    _curX++;
+                }
+
+                // Salto de linea
                 if (data == ',')
                 {
                     _curZ--;
