@@ -19,6 +19,22 @@ namespace UnedSokoban
         public GameObject PanelPausa;
         public Text MovesCounter;
         public Text TimeCounter;
+        public bool isEndGameScreen;
+        public bool isMainGameScreen;
+        public float screenShakeFactor = 8f;
+
+        private void Start()
+        {
+            if (isEndGameScreen)
+            {
+                StartCoroutine(ShowMovesWithScreenShake());
+            }
+            if (isMainGameScreen) 
+            {
+                SKGameControl.instance.characterMoves = 0;
+                SKGameControl.instance.activePlayTime = 0;
+            }
+        }
 
         private void Update()
         {
@@ -27,6 +43,16 @@ namespace UnedSokoban
                 MovesCounter.text = SKGameControl.instance.characterMoves.ToString();
                 TimeCounter.text = Mathf.RoundToInt(SKGameControl.instance.activePlayTime).ToString();
             }
+
+            if(PanelPausa != null && Input.GetKeyDown(KeyCode.Escape)) 
+            {
+                RunPause();
+            }
+        }
+
+        public void RunPause() 
+        {
+            PausarTiempo();
         }
 
         public void QuitSokoban()
@@ -36,6 +62,7 @@ namespace UnedSokoban
 
         public void NextScene(string sceneName)
         {
+            ReanudarTiempo();
             if(SKGameControl.instance != null) 
             {
                 SKGameControl.instance.LoadScene(sceneName);
@@ -48,11 +75,19 @@ namespace UnedSokoban
 
         public void PausarTiempo() 
         {
+            if (PanelPausa != null)
+            {
+                PanelPausa.SetActive(true);
+            }
             Time.timeScale = 0f;
         }
 
         public void ReanudarTiempo() 
         {
+            if(PanelPausa != null) 
+            {
+                PanelPausa.SetActive(false);
+            }
             Time.timeScale = 1f;
         }
 
@@ -70,6 +105,30 @@ namespace UnedSokoban
                 PanelCreditos.SetActive(false);
             else
                 Debug.LogError("Verificar si el panel de créditos se encuntra en la escena");
+        }
+
+        private IEnumerator ShowMovesWithScreenShake()
+        {
+            Vector3 tempPos = MovesCounter.transform.position;
+            MovesCounter.text = "";
+
+            for (int i = 0; i <= SKGameControl.instance.characterMoves; i++) 
+            {
+                MovesCounter.text = i.ToString();
+
+                // The Art Of Screenshake hecho simple,
+                // como Vlambeer (investigar esto en YouTube).
+                MovesCounter.transform.position = new Vector3(
+                    MovesCounter.transform.position.x + Random.Range(-screenShakeFactor, screenShakeFactor),
+                    MovesCounter.transform.position.y + Random.Range(-screenShakeFactor, screenShakeFactor),
+                    MovesCounter.transform.position.z + Random.Range(-screenShakeFactor, screenShakeFactor)
+                );
+                yield return new WaitForEndOfFrame();
+                MovesCounter.transform.position = tempPos;
+                // Fin de Screenshake
+            }
+            MovesCounter.fontSize = (int)(MovesCounter.fontSize * 1.2f);
+            yield return new WaitForEndOfFrame();
         }
     }
 }

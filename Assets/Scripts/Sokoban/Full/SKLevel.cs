@@ -67,7 +67,6 @@ namespace UnedSokoban
             if (_gameDone)
             {
                 if(!_nextGame) StartCoroutine(NextLevel());
-                Debug.Log("Win");
             }
             return _gameDone;
         }

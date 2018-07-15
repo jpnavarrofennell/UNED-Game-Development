@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sokoban/SokobanFull/Level-5.unity
     guid: 64f780a2f7a9e4ce59ce0e142ffcc012
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/SokobanFull/EndGame.unity
+    guid: 09eb016222680433eba48cecffaeb8c7
   m_configObjects: {}

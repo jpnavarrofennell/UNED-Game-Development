@@ -668,7 +668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level-5
-  nextLevelName: Main
+  nextLevelName: EndGame
   elements:
   - name: Player
     prefab: {fileID: 1954444024300182, guid: d78056deacc764f3682646be0c82eb43, type: 2}
@@ -1085,9 +1085,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PanelCreditos: {fileID: 0}
-  PanelPausa: {fileID: 0}
+  PanelPausa: {fileID: 276877349}
   MovesCounter: {fileID: 125627123}
   TimeCounter: {fileID: 573749543}
+  isEndGameScreen: 0
 --- !u!4 &1255508461
 Transform:
   m_ObjectHideFlags: 0
