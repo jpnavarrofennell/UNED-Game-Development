@@ -15,7 +15,6 @@ namespace UnedSokoban
     {
         // Declaración de miembros de clase públicas
         public float stepDistance = 1f;
-        public float threshold;
 
         // Declaración de miembros de clase privadas
         private Vector3 _direction;

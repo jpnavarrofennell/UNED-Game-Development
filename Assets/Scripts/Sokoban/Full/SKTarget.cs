@@ -56,9 +56,6 @@ namespace UnedSokoban
                 // Activamos el color en estado activado
                 targetRenderer.material.color = activatedColor;
 
-                // Ponemos un mensaje en la consola 
-                Debug.Log("Point");
-
                 // Se pone en positivo el estado de este objetivo
                 _status = true;
             }

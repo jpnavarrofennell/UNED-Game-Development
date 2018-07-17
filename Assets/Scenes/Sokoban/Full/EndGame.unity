@@ -987,7 +987,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Iniciar Juego
+  m_Text: "Volver al t\xEDtulo"
 --- !u!222 &1913543792
 CanvasRenderer:
   m_ObjectHideFlags: 0
