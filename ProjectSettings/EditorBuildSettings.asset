@@ -6,24 +6,24 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Sokoban/SokobanFull/Main.unity
+    path: Assets/Scenes/Sokoban/Full/Main.unity
     guid: 697f33c640d804af3b7929cc11cf2dd5
   - enabled: 1
-    path: Assets/Scenes/Sokoban/SokobanFull/Level-1.unity
+    path: Assets/Scenes/Sokoban/Full/Level-1.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Scenes/Sokoban/SokobanFull/Level-2.unity
+    path: Assets/Scenes/Sokoban/Full/Level-2.unity
     guid: 88d58e45d73084040b8186020725beec
   - enabled: 1
-    path: Assets/Scenes/Sokoban/SokobanFull/Level-3.unity
+    path: Assets/Scenes/Sokoban/Full/Level-3.unity
     guid: b2938aea32da149cd87b9a63e35be447
   - enabled: 1
-    path: Assets/Scenes/Sokoban/SokobanFull/Level-4.unity
+    path: Assets/Scenes/Sokoban/Full/Level-4.unity
     guid: 676d88d5a0e194990ac8bd8b4ef6c379
   - enabled: 1
-    path: Assets/Scenes/Sokoban/SokobanFull/Level-5.unity
+    path: Assets/Scenes/Sokoban/Full/Level-5.unity
     guid: 64f780a2f7a9e4ce59ce0e142ffcc012
   - enabled: 1
-    path: Assets/Scenes/Sokoban/SokobanFull/EndGame.unity
+    path: Assets/Scenes/Sokoban/Full/EndGame.unity
     guid: 09eb016222680433eba48cecffaeb8c7
   m_configObjects: {}
