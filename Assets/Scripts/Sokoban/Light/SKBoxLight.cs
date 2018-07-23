@@ -36,7 +36,7 @@ namespace UnedSokoban
             }
         }
 
-        private bool DetectObstruction(Vector3 direction, float stepDistance)
+        public bool DetectObstruction(Vector3 direction, float stepDistance)
         {
             RaycastHit _hit;
             if (Physics.Raycast(transform.position, transform.TransformDirection(direction), out _hit, stepDistance))

@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace UnedSokoban 
 {
-    public class SKBox : MonoBehaviour
+    public class SKBox : SKBoxLight
     {
         private SKLevel _level;
 
@@ -30,7 +30,7 @@ namespace UnedSokoban
 
         }
 
-        public bool MoveBox(Vector3 direction, float stepDistance)
+        new public bool MoveBox(Vector3 direction, float stepDistance)
         {
             if (!_level.GameDone())
             { 
@@ -53,21 +53,6 @@ namespace UnedSokoban
         public void SetLevelController(SKLevel level)
         {
             _level = level;
-        }
-
-        private bool DetectObstruction(Vector3 direction, float stepDistance)
-        {
-            RaycastHit _hit;
-            if (Physics.Raycast(transform.position, transform.TransformDirection(direction), out _hit, stepDistance))
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(direction) * stepDistance, Color.yellow);
-                return true;
-            }
-            else
-            {
-                Debug.DrawRay(transform.position, transform.TransformDirection(direction) * stepDistance, Color.white);
-                return false;
-            }
         }
     }
 

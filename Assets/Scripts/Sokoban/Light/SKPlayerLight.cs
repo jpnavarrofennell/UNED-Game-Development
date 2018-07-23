@@ -65,7 +65,7 @@ namespace UnedSokoban
         }
 
         // Método corutina
-        private IEnumerator TimedMove(Vector3 direction) 
+        public IEnumerator TimedMove(Vector3 direction) 
         {
             _isReadyToMove = false;
             this.transform.Translate(direction);
@@ -74,7 +74,7 @@ namespace UnedSokoban
         }
 
         // Método que verifica si existen coliciones
-        private bool DetectObstruction(Vector3 direction) 
+        public bool DetectObstruction(Vector3 direction) 
         {
             // Se lanza un rayo desde la posición del persona con dirección que indico el jugador
             // En caso de existir colisión, se guardan sus datos en la propiedad de la clase llamada _hit
