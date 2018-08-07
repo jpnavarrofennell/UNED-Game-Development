@@ -24,25 +24,11 @@ namespace UnedSokoban
             this.gameObject.transform.parent = null;
         }
 
-        // Update is called once per frame
-        void Update()
-        {
-
-        }
-
         new public bool MoveBox(Vector3 direction, float stepDistance)
         {
             if (!_level.GameDone())
-            { 
-                if (DetectObstruction(direction, stepDistance))
-                {
-                    return false;
-                }
-                else
-                {
-                    this.gameObject.transform.Translate(direction);
-                    return true;
-                }
+            {
+                return base.MoveBox(direction, stepDistance);
             }
             else
             {

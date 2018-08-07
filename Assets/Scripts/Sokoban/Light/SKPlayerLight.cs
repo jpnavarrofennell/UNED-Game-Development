@@ -17,10 +17,10 @@ namespace UnedSokoban
         public float stepDistance = 1f;
 
         // Declaración de miembros de clase privadas
-        private Vector3 _direction;
-        private bool _isReadyToMove;
-        private RaycastHit _hit;
-        private SKBoxLight _box;
+        protected Vector3 _direction;
+        protected bool _isReadyToMove;
+        protected RaycastHit _hit;
+        protected SKBoxLight _box;
 
         // Método que se ejecuta únicamente en el primer momento que aparece en pantalla el objeto
         void Start()
@@ -29,7 +29,7 @@ namespace UnedSokoban
         }
 
         // Método que se ejecuta en cada refrescamiento de pantalla
-        void Update()
+        public virtual void Update()
         {
             // Lectura de teclado 
             if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -54,7 +54,7 @@ namespace UnedSokoban
         }
 
         // Método privado encargado de mover el personaje
-        private void MoveChar(Vector3 direction)
+        public virtual void MoveChar(Vector3 direction)
         {
             // Verificación de colisiones
             if(!DetectObstruction(direction) && _isReadyToMove) 
@@ -65,7 +65,7 @@ namespace UnedSokoban
         }
 
         // Método corutina
-        public IEnumerator TimedMove(Vector3 direction) 
+        public virtual IEnumerator TimedMove(Vector3 direction) 
         {
             _isReadyToMove = false;
             this.transform.Translate(direction);
@@ -74,7 +74,7 @@ namespace UnedSokoban
         }
 
         // Método que verifica si existen coliciones
-        public bool DetectObstruction(Vector3 direction) 
+        public virtual bool DetectObstruction(Vector3 direction) 
         {
             // Se lanza un rayo desde la posición del persona con dirección que indico el jugador
             // En caso de existir colisión, se guardan sus datos en la propiedad de la clase llamada _hit

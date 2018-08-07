@@ -16,8 +16,8 @@ namespace UnedSokoban
         public Color activatedColor = Color.green;
         public Color deactivatedColor = Color.yellow;
 
-        private bool _status;
-        private Renderer targetRenderer;
+        protected bool _status;
+        protected Renderer targetRenderer;
 
         // Método que se ejecuta únicamente en el primer momento que aparece en pantalla el objeto
         void Start()
