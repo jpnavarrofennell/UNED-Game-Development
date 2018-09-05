@@ -1,14 +1,14 @@
-<!-- Tufts VUE 3.3.0 concept-map (UNEDPP2.vue) 2018-08-05 -->
+<!-- Tufts VUE 3.3.0 concept-map (UNEDPP2.vue) 2018-08-07 -->
 <!-- Tufts VUE: http://vue.tufts.edu/ -->
 <!-- Do Not Remove: VUE mapping @version(1.1) jar:file:/Applications/VUE.app/Contents/Resources/Java/VUE.jar!/tufts/vue/resources/lw_mapping_1_1.xml -->
-<!-- Do Not Remove: Saved date Sun Aug 05 20:28:02 CST 2018 by juanpablonavarrofennell on platform Mac OS X 10.13.4 in JVM 1.8.0_162-b12 -->
+<!-- Do Not Remove: Saved date Tue Aug 07 10:04:07 CST 2018 by juanpablonavarrofennell on platform Mac OS X 10.13.4 in JVM 1.8.0_162-b12 -->
 <!-- Do Not Remove: Saving version @(#)VUE: built October 8 2015 at 1658 by tomadm on Linux 2.6.32-504.23.4.el6.x86_64 i386 JVM 1.7.0_21-b11(bits=32) -->
 <?xml version="1.0" encoding="US-ASCII"?>
 <LW-MAP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="none" ID="0" label="UNEDPP2.vue"
     created="1533424374680" x="0.0" y="0.0" width="1.4E-45"
     height="1.4E-45" strokeWidth="0.0" autoSized="false">
-    <resource referenceCreated="1533522482138" size="14927"
+    <resource referenceCreated="1533657847160" size="16711"
         spec="/Users/juanpablonavarrofennell/UNED-Sokoban-3D/Assets/Documents/UNEDPP2.vue"
         type="1" xsi:type="URLResource">
         <title>UNEDPP2.vue</title>
@@ -252,7 +252,7 @@
         <URIString>http://vue.tufts.edu/rdf/resource/073ed6650a00000258882ca678091d3f</URIString>
     </layer>
     <userZoom>0.75</userZoom>
-    <userOrigin x="-159.69998" y="-130.09999"/>
+    <userOrigin x="-663.69995" y="-130.09999"/>
     <presentationBackground>#202020</presentationBackground>
     <PathwayList currentPathway="0" revealerIndex="-1">
         <pathway ID="0" label="Untitled Pathway" created="1533424374680"

@@ -15,6 +15,7 @@ namespace UnedSokoban
     {
         // Declaración de miembros de clase públicas
         public float stepDistance = 1f;
+        public Transform playerVisual;
 
         // Declaración de miembros de clase privadas
         protected Vector3 _direction;
@@ -53,6 +54,31 @@ namespace UnedSokoban
             }
         }
 
+       
+        public virtual void UIControl(int value)
+        {
+            // Lectura de teclado 
+            if (value == 0)
+            {
+                MoveChar(Vector3.right);
+            }
+
+            if (value == 1)
+            {
+                MoveChar(Vector3.left);
+            }
+
+            if (value == 2)
+            {
+                MoveChar(Vector3.back);
+            }
+
+            if (value == 3)
+            {
+                MoveChar(Vector3.forward);
+            }
+        }
+
         // Método privado encargado de mover el personaje
         public virtual void MoveChar(Vector3 direction)
         {
@@ -69,6 +95,25 @@ namespace UnedSokoban
         {
             _isReadyToMove = false;
             this.transform.Translate(direction);
+
+            // Rotar el personaje
+            if (direction == Vector3.left)
+            {
+                playerVisual.eulerAngles = new Vector3(0f,0f,0f);
+            }
+            if (direction == Vector3.forward)
+            {
+                playerVisual.eulerAngles = new Vector3(0f, 90f, 0f);
+            }
+            if (direction == Vector3.right)
+            {
+                playerVisual.eulerAngles = new Vector3(0f, 180f, 0f);
+            }
+            if (direction == Vector3.back)
+            {
+                playerVisual.eulerAngles = new Vector3(0f, 270f, 0f);
+            }
+
             yield return new WaitForSeconds(0.1f);
             _isReadyToMove = true;
         }

@@ -41,5 +41,4 @@ namespace UnedSokoban
             _level = level;
         }
     }
-
 }

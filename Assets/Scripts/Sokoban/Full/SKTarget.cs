@@ -13,9 +13,6 @@ namespace UnedSokoban
 {
     public class SKTarget : SKTargetLight
     {
-        //protecter bool _status;
-        //private Renderer targetRenderer;
-
         // Método que se ejecuta únicamente en el primer momento que aparece en pantalla el objeto
         void Start()
         {
