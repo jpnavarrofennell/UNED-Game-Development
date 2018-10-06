@@ -22,6 +22,8 @@ namespace UnedSokoban
         protected bool _isReadyToMove;
         protected RaycastHit _hit;
         protected SKBoxLight _box;
+        protected SKCounterObstacleLight _counter;
+        protected SKMovingBoxLight _moving;
 
         // Método que se ejecuta únicamente en el primer momento que aparece en pantalla el objeto
         void Start()
@@ -82,24 +84,10 @@ namespace UnedSokoban
         // Método privado encargado de mover el personaje
         public virtual void MoveChar(Vector3 direction)
         {
-            // Verificación de colisiones
-            if(!DetectObstruction(direction) && _isReadyToMove) 
-            {
-                // Se ejecuta la corutina 
-                StartCoroutine(TimedMove(direction));
-            }
-        }
-
-        // Método corutina
-        public virtual IEnumerator TimedMove(Vector3 direction) 
-        {
-            _isReadyToMove = false;
-            this.transform.Translate(direction);
-
             // Rotar el personaje
             if (direction == Vector3.left)
             {
-                playerVisual.eulerAngles = new Vector3(0f,0f,0f);
+                playerVisual.eulerAngles = new Vector3(0f, 0f, 0f);
             }
             if (direction == Vector3.forward)
             {
@@ -113,6 +101,20 @@ namespace UnedSokoban
             {
                 playerVisual.eulerAngles = new Vector3(0f, 270f, 0f);
             }
+
+            // Verificación de colisiones
+            if (!DetectObstruction(direction) && _isReadyToMove) 
+            {
+                // Se ejecuta la corutina 
+                StartCoroutine(TimedMove(direction));
+            }
+        }
+
+        // Método corutina
+        public virtual IEnumerator TimedMove(Vector3 direction) 
+        {
+            _isReadyToMove = false;
+            this.transform.Translate(direction);
 
             yield return new WaitForSeconds(0.1f);
             _isReadyToMove = true;
@@ -143,6 +145,48 @@ namespace UnedSokoban
                         return false;
                     }
                     else 
+                    {
+                        // La caja no se pudo mover, 
+                        // por tanto, si hay obstrucción
+                        return true;
+                    }
+                }
+
+                if (_hit.collider.gameObject.tag.Equals("Counter"))
+                {
+                    // Obtengo la referencia a la clase SKBox para consultar el obejto que intento mover
+                    _counter = _hit.collider.gameObject.GetComponent<SKCounterObstacleLight>();
+
+                    // Evaluar si se puedo mover la caja
+                    // Invocar metodos de mover la caja
+                    if (_counter.MoveBox(direction, stepDistance))
+                    {
+                        // La caja que mueve el usuario pudo moverse, 
+                        // por tanto, no hay obstrucción
+                        return false;
+                    }
+                    else
+                    {
+                        // La caja no se pudo mover, 
+                        // por tanto, si hay obstrucción
+                        return true;
+                    }
+                }
+
+                if (_hit.collider.gameObject.tag.Equals("MovingBox"))
+                {
+                    // Obtengo la referencia a la clase SKBox para consultar el obejto que intento mover
+                    _moving = _hit.collider.gameObject.GetComponent<SKMovingBoxLight>();
+
+                    // Evaluar si se puedo mover la caja
+                    // Invocar metodos de mover la caja
+                    if (_moving.MoveBox(direction, stepDistance))
+                    {
+                        // La caja que mueve el usuario pudo moverse, 
+                        // por tanto, no hay obstrucción
+                        return false;
+                    }
+                    else
                     {
                         // La caja no se pudo mover, 
                         // por tanto, si hay obstrucción

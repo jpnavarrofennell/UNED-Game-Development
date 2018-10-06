@@ -26,4 +26,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sokoban/Full/EndGame.unity
     guid: 09eb016222680433eba48cecffaeb8c7
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Intro.unity
+    guid: 63aecd57b8fc746dc8d95219b9b091e7
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Dialogo2.unity
+    guid: 4f41523e06ded4aa5995a69fc305dbf3
   m_configObjects: {}

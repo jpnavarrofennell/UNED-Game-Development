@@ -15,12 +15,13 @@ namespace UnedSokoban
     {
         public Color activatedColor = Color.green;
         public Color deactivatedColor = Color.yellow;
+        public string targetTag = "Box";
 
         protected bool _status;
         protected Renderer targetRenderer;
 
         // Método que se ejecuta únicamente en el primer momento que aparece en pantalla el objeto
-        void Start()
+        protected void Start()
         {
             // Se obtiene la referencia del renderizador del cubo (lo que hace que se vea en pantalla)
             targetRenderer = this.gameObject.GetComponent<Renderer>();
@@ -39,10 +40,10 @@ namespace UnedSokoban
         }
 
         // Método que se invoca cada vez que se dispara el evento de colisiones entrantes
-        private void OnTriggerEnter(Collider other)
+        protected void OnTriggerEnter(Collider other)
         {
             // Se consulta si la colisión entrante se dio con un objeto con al etiqueta "Box"
-            if(other.gameObject.tag.Equals("Box")) 
+            if(other.gameObject.tag.Equals(targetTag)) 
             {
                 // Activamos el color en estado activado
                 targetRenderer.material.color = activatedColor;
@@ -53,10 +54,10 @@ namespace UnedSokoban
         }
 
         // Método que se invoca cada vez que se dispara el evento de colisiones salientes
-        private void OnTriggerExit(Collider other)
+        protected void OnTriggerExit(Collider other)
         {
             // Se consulta si la colisión saliente se dio con un objeto con al etiqueta "Box"
-            if (other.gameObject.tag.Equals("Box"))
+            if (other.gameObject.tag.Equals(targetTag))
             {
                 // Activamos el color en estado desactivado
                 targetRenderer.material.color = deactivatedColor;

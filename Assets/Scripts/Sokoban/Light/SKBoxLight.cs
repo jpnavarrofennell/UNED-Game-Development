@@ -23,7 +23,7 @@ namespace UnedSokoban
 
         }
 
-        public bool MoveBox(Vector3 direction, float stepDistance)
+        public virtual bool MoveBox(Vector3 direction, float stepDistance)
         {
             if (DetectObstruction(direction, stepDistance))
             {
