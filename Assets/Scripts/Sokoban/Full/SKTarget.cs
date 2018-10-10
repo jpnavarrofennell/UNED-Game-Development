@@ -13,8 +13,10 @@ namespace UnedSokoban
 {
     public class SKTarget : SKTargetLight
     {
+        protected bool _ready;
+
         // Método que se ejecuta únicamente en el primer momento que aparece en pantalla el objeto
-        void Start()
+        new void Start()
         {
             // Se obtiene la referencia del renderizador del cubo (lo que hace que se vea en pantalla)
             targetRenderer = this.gameObject.GetComponent<Renderer>();
@@ -23,7 +25,7 @@ namespace UnedSokoban
             targetRenderer.material.color = deactivatedColor;
 
             // El estado de este objeto es desactivado
-            _status = false;
+            // _status = false;
 
             // Configuramos este objeto en la escena.
             this.gameObject.transform.parent.name = "Ground";
@@ -33,6 +35,14 @@ namespace UnedSokoban
             // Registramos en el singleton este objeto, desde SKGamContro se
             // monitorean todos los objetos SKTarget para ver si el juego ha sido ganado
             SKGameControl.instance.RegisterTarget(this);
+
+            _ready = false;
+
+            if (_status)
+            {
+                targetRenderer.material.color = activatedColor;
+                _ready = true;
+            }
         }
     }
 }

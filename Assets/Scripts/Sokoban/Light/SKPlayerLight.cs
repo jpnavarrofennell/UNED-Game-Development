@@ -84,6 +84,27 @@ namespace UnedSokoban
         // Método privado encargado de mover el personaje
         public virtual void MoveChar(Vector3 direction)
         {
+            RotateChar(direction);
+            // Verificación de colisiones
+            if (!DetectObstruction(direction) && _isReadyToMove) 
+            {
+                // Se ejecuta la corutina 
+                StartCoroutine(TimedMove(direction));
+            }
+        }
+
+        // Método corutina
+        public virtual IEnumerator TimedMove(Vector3 direction) 
+        {
+            _isReadyToMove = false;
+            this.transform.Translate(direction);
+
+            yield return new WaitForSeconds(0.1f);
+            _isReadyToMove = true;
+        }
+
+        public virtual void RotateChar(Vector3 direction) 
+        {
             // Rotar el personaje
             if (direction == Vector3.left)
             {
@@ -101,23 +122,6 @@ namespace UnedSokoban
             {
                 playerVisual.eulerAngles = new Vector3(0f, 270f, 0f);
             }
-
-            // Verificación de colisiones
-            if (!DetectObstruction(direction) && _isReadyToMove) 
-            {
-                // Se ejecuta la corutina 
-                StartCoroutine(TimedMove(direction));
-            }
-        }
-
-        // Método corutina
-        public virtual IEnumerator TimedMove(Vector3 direction) 
-        {
-            _isReadyToMove = false;
-            this.transform.Translate(direction);
-
-            yield return new WaitForSeconds(0.1f);
-            _isReadyToMove = true;
         }
 
         // Método que verifica si existen coliciones
@@ -173,7 +177,7 @@ namespace UnedSokoban
                     }
                 }
 
-                if (_hit.collider.gameObject.tag.Equals("MovingBox"))
+                if (_hit.collider.gameObject.tag.Equals("Moving"))
                 {
                     // Obtengo la referencia a la clase SKBox para consultar el obejto que intento mover
                     _moving = _hit.collider.gameObject.GetComponent<SKMovingBoxLight>();

@@ -56,6 +56,11 @@ namespace UnedSokoban
 
         public bool GameDone() 
         {
+            if(_targets.Length == 0) 
+            {
+                return false;
+            }
+
             _gameDone = true;
             foreach (SKTarget target in _targets)
             {

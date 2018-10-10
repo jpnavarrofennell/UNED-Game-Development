@@ -17,6 +17,7 @@ namespace UnedSokoban
         public Color deactivatedColor = Color.yellow;
         public string targetTag = "Box";
 
+        [SerializeField]
         protected bool _status;
         protected Renderer targetRenderer;
 
@@ -46,7 +47,8 @@ namespace UnedSokoban
             if(other.gameObject.tag.Equals(targetTag)) 
             {
                 // Activamos el color en estado activado
-                targetRenderer.material.color = activatedColor;
+                if(targetRenderer != null) 
+                    targetRenderer.material.color = activatedColor;
 
                 // Se pone en positivo el estado de este objetivo
                 _status = true;

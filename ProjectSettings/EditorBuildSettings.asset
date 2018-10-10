@@ -9,6 +9,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Sokoban/Full/Main.unity
     guid: 697f33c640d804af3b7929cc11cf2dd5
   - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/EndGame.unity
+    guid: 09eb016222680433eba48cecffaeb8c7
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Intro.unity
+    guid: 63aecd57b8fc746dc8d95219b9b091e7
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Dialogo2.unity
+    guid: 4f41523e06ded4aa5995a69fc305dbf3
+  - enabled: 1
     path: Assets/Scenes/Sokoban/Full/Level-1.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
@@ -24,12 +33,72 @@ EditorBuildSettings:
     path: Assets/Scenes/Sokoban/Full/Level-5.unity
     guid: 64f780a2f7a9e4ce59ce0e142ffcc012
   - enabled: 1
-    path: Assets/Scenes/Sokoban/Full/EndGame.unity
-    guid: 09eb016222680433eba48cecffaeb8c7
+    path: Assets/Scenes/Sokoban/Full/Level-6.unity
+    guid: 5e9e114340a7846cb9e2d3e0dd4a9962
   - enabled: 1
-    path: Assets/Scenes/Sokoban/Full/Intro.unity
-    guid: 63aecd57b8fc746dc8d95219b9b091e7
+    path: Assets/Scenes/Sokoban/Full/Level-7.unity
+    guid: d3b78e1387e984e35ac1291747fdaf4f
   - enabled: 1
-    path: Assets/Scenes/Sokoban/Full/Dialogo2.unity
-    guid: 4f41523e06ded4aa5995a69fc305dbf3
+    path: Assets/Scenes/Sokoban/Full/Level-8.unity
+    guid: acd10d59a8c734b009cafb4c06d854be
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-9.unity
+    guid: 21e7f2610a2bf45d6bdd28fbfb983ffa
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-10.unity
+    guid: 6f5a96e74031942d39d752bf03e7a137
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-11.unity
+    guid: 2257cab583b1d4707a5b28d36fa1bf45
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-12.unity
+    guid: 8e76d0bcb28064c02b90224ed11c9847
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-13.unity
+    guid: 71422ce8d3f20409aa544a5818423ed3
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-14.unity
+    guid: c4461d92a07414afcb3e77a2d493ee3b
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-15.unity
+    guid: c421bd627f6bd4717b15b0419c50a563
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-16.unity
+    guid: 78db94e348ae348a2a582071eeab24c2
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-17.unity
+    guid: 459ee6e9abcae4d978f8d4807a8eb56a
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-18.unity
+    guid: 9fa4cb21bd4f2479b9ebe561e814f6c7
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-19.unity
+    guid: 5626a7fdc82444c0e924f2925289903f
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-20.unity
+    guid: 6662eac3384e44f8b848bfbda8281e8f
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-21.unity
+    guid: a1bc518bd460848f2b1b4b9bc28e9ff6
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-22.unity
+    guid: b1d5a8acb10804212b0f4c8d405fe5b5
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-23.unity
+    guid: 8930df671947446d8918a518b7344725
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-24.unity
+    guid: e38813d46cf654f4b9abea3470e83dd8
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-25.unity
+    guid: faa75c971ae554b1fa657d1042188a1f
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-26.unity
+    guid: 6b0ba81afe2364d308f27c8fea21b308
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-27.unity
+    guid: 129d8ca29f2d94aa098e06de237cb444
+  - enabled: 1
+    path: Assets/Scenes/Sokoban/Full/Level-28.unity
+    guid: 380ea05b294a045b0a63a5d1bae0295a
   m_configObjects: {}

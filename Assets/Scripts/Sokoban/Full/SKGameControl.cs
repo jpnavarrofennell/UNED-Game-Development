@@ -78,13 +78,21 @@ namespace UnedSokoban {
             SceneManager.LoadScene(value);
         }
 
-        public void RestartGame() 
+        public void RestartGame()
         {
             _level = null;
             ResetTargets();
             _characterMoves = 0;
             _activePlayTime = 0;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        public void ResetCurrentLevel()
+        {
+            _level = null;
+            ResetTargets();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Time.timeScale = 1f;
         }
 
         public void RegisterTarget(SKTarget newTarget) 

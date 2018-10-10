@@ -130,6 +130,11 @@ namespace UnedSokoban
             MovesCounter.fontSize = (int)(MovesCounter.fontSize * 1.2f);
             yield return new WaitForEndOfFrame();
         }
+
+        public void ResetGame() 
+        {
+            SKGameControl.instance.ResetCurrentLevel();
+        }
     }
 }
 

@@ -50,6 +50,7 @@ namespace UnedSokoban
         // Método privado encargado de mover el personaje
         public override void MoveChar(Vector3 direction)
         {
+            base.RotateChar(direction);
             // Verificación de colisiones
             if(!DetectObstruction(direction) && _isReadyToMove) 
             {
