@@ -25,6 +25,7 @@ namespace UnedSokoban
         public string levelName;
         public string nextLevelName;
         public LevelElements[] elements;
+        public int NextBlock;
 
         private bool _gameStart;
         private bool _gameDone;
@@ -80,6 +81,7 @@ namespace UnedSokoban
         {
             _nextGame = true;
             yield return new WaitForSeconds(1f);
+            SKGameControl.instance.currentBlock = NextBlock;
             SKGameControl.instance.LoadScene(this.nextLevelName);
         }
 

@@ -39,15 +39,27 @@ namespace UnedSokoban {
             }
         }
 
-        public SKLevel levelmanager 
+        public SKLevel levelmanager
         {
-            get 
+            get
             {
                 return _level;
             }
-            set 
+            set
             {
                 _level = value;
+            }
+        }
+
+        public int currentBlock
+        {
+            get
+            {
+                return _currentBlock;
+            }
+            set
+            {
+                _currentBlock = value;
             }
         }
 
@@ -55,6 +67,7 @@ namespace UnedSokoban {
         private float _activePlayTime;
         private List<SKTarget> targets;
         private SKLevel _level;
+        private int _currentBlock;
 
         // Use this for initialization
         void Awake()
