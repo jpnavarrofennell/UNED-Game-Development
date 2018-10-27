@@ -19,6 +19,7 @@ namespace UnedSokoban
         public GameObject PanelPausa;
         public Text MovesCounter;
         public Text TimeCounter;
+        public Text PersonalBestCounter;
         public bool isEndGameScreen;
         public bool isMainGameScreen;
         public float screenShakeFactor = 8f;
@@ -33,6 +34,26 @@ namespace UnedSokoban
             {
                 SKGameControl.instance.characterMoves = 0;
                 SKGameControl.instance.activePlayTime = 0;
+            }
+            if( !isEndGameScreen && !isMainGameScreen) 
+            {
+                StartCoroutine(SetUpScene());
+            }
+        }
+
+        private IEnumerator SetUpScene() 
+        {
+            bool ready = false;
+            while(!ready) {
+                yield return new WaitForEndOfFrame();
+                if(SKGameControl.instance.levelmanager != null) 
+                {
+                    ready = true;
+                    PersonalBestCounter.text = PlayerPrefs.GetInt(
+                        "Best-" + SKGameControl.instance.levelmanager.levelName, 
+                        -1)
+                        .ToString();
+                }
             }
         }
 

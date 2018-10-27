@@ -72,7 +72,14 @@ namespace UnedSokoban
             }
             if (_gameDone)
             {
-                if(!_nextGame) StartCoroutine(NextLevel());
+                int temp = PlayerPrefs.GetInt("Best-"+ levelName, 999);
+
+                if(temp > SKGameControl.instance.characterMoves) 
+                {
+                    PlayerPrefs.SetInt("Best-" + levelName, SKGameControl.instance.characterMoves);
+                }
+
+                if (!_nextGame) StartCoroutine(NextLevel());
             }
             return _gameDone;
         }
