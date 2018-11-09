@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelName: Level-20
-  nextLevelName: Level-21
+  nextLevelName: EndGame
   elements:
   - name: Player
     prefab: {fileID: 1954444024300182, guid: d78056deacc764f3682646be0c82eb43, type: 2}

@@ -144,6 +144,7 @@ MonoBehaviour:
   PanelPausa: {fileID: 0}
   MovesCounter: {fileID: 0}
   TimeCounter: {fileID: 0}
+  PersonalBestCounter: {fileID: 0}
   isEndGameScreen: 0
   isMainGameScreen: 1
   screenShakeFactor: 5
